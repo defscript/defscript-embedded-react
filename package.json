@@ -1,8 +1,9 @@
 {
   "name": "defscript-embedded-react",
-  "version": "0.1.0",
-  "description": "React syntax plugin for Defscript",
-  "main": "index.js",
+  "version": "0.1.1",
+  "description": "Embedded React syntax plugin for Defscript",
+  "type": "module",
+  "main": "lib/index.mjs",
   "scripts": {
     "test": "node --experimental-modules --es-module-specifier-resolution=node test.mjs",
     "build-parser": "crane grammar.crane -r dom > lib/parser.out.mjs"

@@ -1,0 +1,49 @@
+
+dom
+    attributes
+        string
+            > \simple-string
+            > \rich-string
+
+        attribute
+            value
+                > string    => @node 'code', {code: @parseEmbedded $[0]}
+                > \code     => @node 'code', {code: @parseEmbedded $[0].slice(1, -1)}
+
+            > \id '=' value    =>
+                @node 'attribute', {
+                    name: $[0]
+
+                    value: $[2]
+                }
+ 
+        > @multiple(attribute)
+        
+    node
+        > '<' \id attributes '>' @multiple(node) '<' '/' \id '>'  =>
+            @node 'dom-node', {
+                name: $[1]
+                attributes: $[2]
+                children: $[4]
+                single: false
+            }
+        
+        > '<' \id attributes '/' '>' =>
+            @node 'dom-node', {
+                name: $[1]
+                attributes: $[2]
+                children: []
+                single: true
+            }
+        
+        > \text =>
+            @node 'text-node', {
+                text: $[0]
+            }
+
+        > \code =>
+            @node 'code-node', {
+                code: @parseEmbedded $[0].slice(1, -1)
+            }
+
+    > node

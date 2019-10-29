@@ -1,0 +1,35 @@
+{
+  "name": "defscript-embedded-react",
+  "version": "0.1.0",
+  "description": "React syntax plugin for Defscript",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-modules --es-module-specifier-resolution=node test.mjs",
+    "build-parser": "crane grammar.crane -r dom > lib/parser.out.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defscript/defscript-embedded-react.git"
+  },
+  "keywords": [
+    "awesome",
+    "fantastic",
+    "wonderful",
+    "bliss",
+    "sublime"
+  ],
+  "author": "Gabriel Ratener <gabe9693@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/defscript/defscript-embedded-react/issues"
+  },
+  "homepage": "https://github.com/defscript/defscript-embedded-react#readme",
+  "dependencies": {
+    "crane-parser": "^0.2.0",
+    "defscript-core": "0.0.9",
+    "lexie": "^1.0.7"
+  },
+  "devDependencies": {
+    "tape": "^4.11.0"
+  }
+}

@@ -78,7 +78,7 @@ tape("Compile attributes", (t) => {
 });
 
 tape("Compile embedded nesting", (t) => {
-    t.plan(4);
+    t.plan(5);
 
     const code = `
         def embedded = #react
@@ -100,4 +100,5 @@ tape("Compile embedded nesting", (t) => {
     t.equal(ast.body[0].declarations[0].init.arguments[2].elements[1].name, 'halo');
     t.equal(ast.body[0].declarations[0].init.arguments[2].elements[3].type, 'CallExpression');
     t.equal(ast.body[0].declarations[0].init.arguments[2].elements[3].callee.property.name, 'createElement');
+    t.equal(ast.body[0].declarations[0].init.arguments[2].elements[3].arguments[0].name, 'NodeToo');
 });
